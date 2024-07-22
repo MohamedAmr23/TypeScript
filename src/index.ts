@@ -114,6 +114,100 @@ const arrow2=function(num1:number,num2:number):number{
     return num1+num2
 }
 /////////////////////////////////////////////////////////////////////
+// /////////////////////////// lesson 12 ///////////////////////////
+// Data Types - Type Alias
+
+type st=string
+
+let yourName:st="mohamed"
+
+type al=string|number
+
+let ok:al="mo"
+ok=100
+//////////////////////////////////////////////////////////////////////
+
+
+
+
+
+// /////////////////////////// lesson 13 ///////////////////////////
+//Type Alias Advanced
+type Buttons={
+    up:string,
+    down:string,
+    left:string,
+    right:string
+}
+type last=Buttons&{
+    x:boolean
+}
+function getBtn(btn:Buttons){
+    console.log(`test ${btn.down}`)
+    console.log(`test ${btn.up}`)
+    console.log(`test ${btn.left}`)
+    console.log(`test ${btn.right}`)
+}
+
+//////////////////////////////////////////////////////////////////////
+
+
+
+
+
+// /////////////////////////// lesson 14 ///////////////////////////
+// Data Types - Literal Types
+
+type num=0 | 1 | -1
+
+function compare(num1:number,num2:number):num{
+    if(num1===num2){
+        return 0
+    }else if(num1>num2){
+        return 1
+    }else{
+        return -1
+    }
+}
+let myNum:num=1
+// let myNum:num=100 //error
+
+
+//////////////////////////////////////////////////////////////////////
+
+
+
+// /////////////////////////// lesson 15 ///////////////////////////
+//Data Types - Tuple
+
+let article:[number,string,boolean]=[1,"one",true]
+article=[2,"two",false]
+
+const [id,title,bool]=article
+console.log(id)
+console.log(title)
+console.log(bool)
+
+
+//////////////////////////////////////////////////////////////////////
+
+// /////////////////////////// lesson 16 ///////////////////////////
+// Data Types - Void And Never
+
+// - Void
+// --- Function That Will Return Nothing
+// --- Function In JavaScript That Not Return A Value Will Show undefined
+// --- undefined is not void
+// not return value
+// - Never
+// --- Return Type Never Returns
+// --- The Function Doesn't Have A Normal Completion
+// --- It Throws An Error Or Never Finishes Running At All "Infinite Loop"
+// // not return anything
+
+//////////////////////////////////////////////////////////////////////
+
+
 
 
 
