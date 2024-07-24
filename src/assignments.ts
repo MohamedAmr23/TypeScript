@@ -186,3 +186,244 @@
 // The Value Is true And Type Is boolean
 // Done
 //////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// Week 2
+// ass1 
+// Write Your Code Here
+
+// Do Not Edit Here
+// let myData: n;
+// myData = 1000; // No Problem Here
+// myData = +true; // No Problem Here
+
+// solution 
+// type n=string|number
+// let myData: n;
+// myData = 1000; // No Problem Here
+// myData = +true; // No Problem Here
+
+
+
+// ass2
+// Write Your Code Here
+
+// Do Not Edit Here
+// let myInfo: mix;
+// myInfo = 1000; // No Problem Here
+// myInfo = true; // No Problem Here
+
+// solution
+type mi=number|boolean   //we should write mix instead of mi but because not make error in index.ts
+
+// // Do Not Edit Here
+// let myInfo: mi;
+// myInfo = 1000; // No Problem Here
+// myInfo = true; // No Problem Here
+
+
+
+
+// ass 3
+// Write Your Code Here
+
+// Do Not Edit Here
+// function showInfo(data: Info) {
+//     console.log(`The Name Is ${data.theName}`);
+//     console.log(`The Age Is ${data.theAge}`);
+//   }
+//   console.log(showInfo({ theName: "Elzero", theAge: 40 }));
+  
+//   function showFullInfo(data: Full) {
+//     console.log(`The Name Is ${data.theName}`);
+//     console.log(`The Age Is ${data.theAge}`);
+//     console.log(`The Country Is ${data.country}`);
+//   }
+//   console.log(showFullInfo({ theName: "Elzero", theAge: 4, country: "Egypt" }));
+
+
+
+// solution
+
+
+// type Info={
+//     theName:string,
+//     theAge:number
+// }
+// type Full=Info&{
+//     country:string
+// }
+
+// // Do Not Edit Here
+// function showInfo(data: Info) {
+//     console.log(`The Name Is ${data.theName}`);
+//     console.log(`The Age Is ${data.theAge}`);
+//   }
+//   console.log(showInfo({ theName: "Elzero", theAge: 40 }));
+  
+//   function showFullInfo(data: Full) {
+//     console.log(`The Name Is ${data.theName}`);
+//     console.log(`The Age Is ${data.theAge}`);
+//     console.log(`The Country Is ${data.country}`);
+//   }
+//   console.log(showFullInfo({ theName: "Elzero", theAge: 4, country: "Egypt" }));
+
+
+
+// ass 4
+
+// function yesOrNo(val: number | boolean) : "Yes" | "No" {
+//     return val > 10;
+//   }
+  
+//   // Do Not Edit Here
+//   console.log(yesOrNo("100")); // Error
+//   console.log(yesOrNo(30)); // True
+//   console.log(yesOrNo(8)); // False
+// solution
+
+// function yesOrNo(val: number | boolean) : "Yes" | "No"  {
+//     if(typeof val==="number"){
+//         return val > 10? "Yes" : "No";
+//     }else{
+//         throw new Error("Invalid input type");
+//     }
+//   }
+  
+//   // Do Not Edit Here
+//   console.log(yesOrNo("100")); // Error
+//   console.log(yesOrNo(30)); // True
+//   console.log(yesOrNo(8)); // False
+
+
+
+// ass 5
+// function isHeOld(age: number | string[]) : custom | number {
+//     return age > 40;
+//   }
+  
+//   // Do Not Edit Here
+//   console.log(isHeOld("100")); // Error
+//   console.log(isHeOld(45)); // "Yes"
+//   console.log(isHeOld(30)); // "No"
+// solution
+// type custom= "Yes" | "No";
+// function isHeOld(age: number | string[]) : custom | number {
+//     if(typeof age==="number"){
+//         return age > 40? "Yes" : "No";
+//     }throw new Error("Invalid input type. Expected a number.");
+    
+//   }
+  
+//   // Do Not Edit Here
+//   console.log(isHeOld("100")); // Error
+//   console.log(isHeOld(45)); // "Yes"
+//   console.log(isHeOld(30)); // "No"
+
+// ass 6
+// post = [100, 200, "Title"]; // Error
+// post = ["Title", 100, true]; // Error
+// post = [100, "Title", true]; // Good
+
+// post.push("Elzero"); // Error => Cant Add
+
+// // Create Destructuring Here
+
+// // Do Not Edit Here
+// console.log(id); // 100
+// console.log(title); // "Title"
+// console.log(state); // true
+
+// solution
+// post = [100, 200, "Title"]; // Error
+// post = ["Title", 100, true]; // Error
+// post = [100, "Title", true]; // Good
+
+// post.push("Elzero"); // Error => Cant Add
+
+// const post:[number,string,boolean]=[100,"Title",true]
+// const [idt,titlet,state]=post
+
+// // Do Not Edit Here
+// console.log(idt); // 100
+// console.log(titlet); // "Title"
+// console.log(state); // true
+
+// ass 7
+// Create Enums + Function Here
+
+// // Output
+// console.log(Game.Easy); // 100
+// console.log(Game.Medium); // 80
+// console.log(Game.Hard); // 30
+// console.log(Game.Insane); // 20
+
+// solution
+// enum Game{
+//     Easy = 100,
+//     Medium = Game.Easy - 20,
+//     Hard = Game.Medium - (Game.Easy / 2),
+
+
+// }
+// function insane(parameter: number): number {
+//   return Game.Hard - parameter;
+// }
+
+
+// // Output
+
+
+// console.log(Game.Easy); // 100
+// console.log(Game.Medium); // 80
+// console.log(Game.Hard); // 30
+// console.log(insane(10)); // 20
+
+// ass 8
+// const user: {
+//     readonly username: string,
+//     age: number,
+//     website?: string,
+//     skills: {
+//       frontEnd: string[],
+//       backEnd: string[]
+//     }
+//   } = {
+//     username: "Elzero",
+//     age: 40,
+//     website: "Elzero.org",
+//     skills: {
+//       frontEnd: ["HTML", "CSS", "JS"],
+//       backEnd: ["PHP", "Python"]
+//     }
+//   }
+  
+//   // We Need To Remove Error From This Edits
+//   user.username = "Osama";
+//   user.age = "40";
+//   user.skills.backEnd.push(100);
+
+//   solution
+// const user: {
+//     username: string,
+//     age: number|string,
+//     website?: string,
+//     skills: {
+//       frontEnd: string[],
+//       backEnd: (string|number)[],
+//     }
+//   } = {
+//     username: "Elzero",
+//     age: 40,
+//     website: "Elzero.org",
+//     skills: {
+//       frontEnd: ["HTML", "CSS", "JS"],
+//       backEnd: ["PHP", "Python"]
+//     }
+//   }
+  
+//   // We Need To Remove Error From This Edits
+//   user.username = "Osama";
+//   user.age = "40";
+//   user.skills.backEnd.push(100);
