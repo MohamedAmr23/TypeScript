@@ -392,7 +392,160 @@ let myObject: {
   console.log(myObject.skills.one);
 
 ///////////////////////////////////////////////////////////////////
+// week 3
+// // /////////////////////////// lesson 22 ///////////////////////////
+//   Interface
+//   - Interface Declaration
+//   --- Serve Like Types
+//   --- The Interface Describes The Shape Of An Object
+//   --- It Defines The Syntax To Follow
 
+//   --- Use With Object
+//   --- Use With Function
+//   --- Use Read Only And Optional Operator
+// 
 
+interface User1 {
+  id?: number,
+  readonly username: string,
+  country: string
+}
 
+let user: User1 = {
+  id: 100,
+  username: "Elzero",
+  country: "Egypt"
+}
 
+user.country = "Syria";
+
+console.log(user);
+
+function getData(data: User1) {
+  console.log(`Id Is ${data.id}`);
+  console.log(`Username Is ${data.username}`);
+  console.log(`Country Is ${data.country}`);
+}
+
+getData({ id: 200, username: "Osama", country: "KSA" });
+///////////////////////////////////////////////////////////////////
+
+// // /////////////////////////// lesson 23 ///////////////////////////
+// Interface Method And Parameters
+/*
+  Interface
+  - Interface Method And Parameters
+*/
+
+interface User {
+  id2: number;
+  username2: string;
+  country: string;
+  sayHello() : string;
+  sayWelcome: () => string;
+  getDouble(num: number) : number;
+}
+
+let user2: User = {
+  id2: 100,
+  username2: "Elzero",
+  country: "Egypt",
+  sayHello() {
+    return `Hello ${this.username2}`;
+  },
+  sayWelcome: () => {
+    return `Welcome ${user2.username2}`;
+  },
+  getDouble(n) {
+    return n * 2;
+  }
+}
+
+console.log(user2.id2);
+console.log(user2.sayHello());
+console.log(user2.sayWelcome());
+console.log(user2.getDouble(100));
+///////////////////////////////////////////////////////////////////
+// // /////////////////////////// lesson 24 ///////////////////////////
+/*
+  Interface
+  - ReOpen The Interface And Use Cases
+*/
+
+// Homepage
+interface Settings {
+  readonly theme: boolean;
+  font: string;
+}
+
+// Articles Page
+interface Settings {
+  sidebar: boolean;
+}
+
+// Contact Page
+interface Settings {
+  external: boolean;
+}
+
+let userSettings: Settings = {
+  theme: true,
+  font: "Open Sans",
+  sidebar: false,
+  external: true
+}
+///////////////////////////////////////////////////////////////////
+// // /////////////////////////// lesson 25 ///////////////////////////
+// Interface Extend
+/*
+  Interface
+  - Extending Interfaces
+*/
+
+interface User3 {
+  id: number;
+  username: string;
+  country: string;
+}
+
+interface Moderator {
+  role: string | number;
+}
+
+interface Admin extends User3,Moderator {
+  protect?: boolean;
+}
+
+let user3: Admin = {
+  id: 100,
+  username: "Elzero",
+  country: "Egypt",
+  role: "Mod",
+  protect: true
+}
+
+console.log(user3.id);
+///////////////////////////////////////////////////////////////////
+// // /////////////////////////// lesson 26 ///////////////////////////
+// 
+//   Interface
+//   - Interface vs Type Aliases
+//   - Take A Look On HTMLElement Interface
+// 
+
+let el = document.getElementById("id") as HTMLElement;
+
+// Homepage
+type Settings2= {
+  readonly theme: boolean;
+  font: string;
+  sidebar: boolean;
+  external: boolean;
+}
+
+let userSettings2: Settings2 = {
+  theme: true,
+  font: "Open Sans",
+  sidebar: false,
+  external: true
+}

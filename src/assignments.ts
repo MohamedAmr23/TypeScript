@@ -215,7 +215,7 @@
 // myInfo = true; // No Problem Here
 
 // solution
-type mi=number|boolean   //we should write mix instead of mi but because not make error in index.ts
+// type mi=number|boolean   //we should write mix instead of mi but because not make error in index.ts
 
 // // Do Not Edit Here
 // let myInfo: mi;
