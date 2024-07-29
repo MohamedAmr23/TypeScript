@@ -432,39 +432,47 @@ getData({ id: 200, username: "Osama", country: "KSA" });
 
 // // /////////////////////////// lesson 23 ///////////////////////////
 // Interface Method And Parameters
-/*
-  Interface
-  - Interface Method And Parameters
-*/
+//*
+// Interface
+// - Interface Method And Parameters
+// */
 
 interface User {
-  id2: number;
-  username2: string;
-  country: string;
-  sayHello() : string;
-  sayWelcome: () => string;
-  getDouble(num: number) : number;
+id: number;
+username: string;
+country: string;
+sayHello() : string;
+sayWelcome: () => string;
+getDouble(num: number) : number;
 }
 
-let user2: User = {
-  id2: 100,
-  username2: "Elzero",
+let userInterface: User = {
+  id: 100,
+  username: "Elzero",
   country: "Egypt",
   sayHello() {
-    return `Hello ${this.username2}`;
+    return `Hello ${this.username}`;
   },
   sayWelcome: () => {
-    return `Welcome ${user2.username2}`;
+    return `Welcome ${user.username}`;
   },
   getDouble(n) {
     return n * 2;
+  },
+  u: "",
+  s: 0,
+  msg: function (): string {
+    throw new Error("Function not implemented.");
+  },
+  sayMsg: function (): string {
+    throw new Error("Function not implemented.");
   }
 }
 
-console.log(user2.id2);
-console.log(user2.sayHello());
-console.log(user2.sayWelcome());
-console.log(user2.getDouble(100));
+console.log(userInterface.id);
+console.log(userInterface.sayHello());
+console.log(userInterface.sayWelcome());
+console.log(userInterface.getDouble(100));
 ///////////////////////////////////////////////////////////////////
 // // /////////////////////////// lesson 24 ///////////////////////////
 /*
@@ -542,10 +550,173 @@ type Settings2= {
   sidebar: boolean;
   external: boolean;
 }
-
+// interface is better than type because allow you to make interface with the same name but type not allow you this
 let userSettings2: Settings2 = {
   theme: true,
   font: "Open Sans",
   sidebar: false,
   external: true
 }
+///////////////////////////////////////////////////////////////////
+// // /////////////////////////// lesson 27 ///////////////////////////
+// Class Type Annotations
+/*
+  Type Annotations With Class
+*/
+
+class User {
+  u: string;
+  s: number;
+  msg: () => string;
+  constructor(username: string, salary: number) {
+    this.u = username;
+    this.s = salary;
+    this.msg = function () {
+      return `Hello ${this.u} Your Salary Is ${this.s}`;
+    }
+  }
+  sayMsg() {
+    return `Hello ${this.u} Your Salary Is ${this.s}`;
+  }
+}
+
+let userOne = new User("Elzero", 6000);
+
+console.log(userOne.u);
+console.log(userOne.s);
+console.log(userOne.msg());
+console.log(userOne.sayMsg());
+
+///////////////////////////////////////////////////////////////////
+// // /////////////////////////// lesson 28 ///////////////////////////
+/*
+  Class
+  - Data Access Modifiers & Parameters Properties
+  --- Public
+  ------ All Members Of A Class In TypeScript Are Public
+  ------ All Public Members Can Be Accessed Anywhere Without Any Restrictions
+  --- Private
+  ------ Members Are Visible Only To That Class And Are Not Accessible Outside The Class
+  --- Protected
+  ------ Same Like Private But Can Be Accessed Using The Deriving Class
+
+  - TypeScript Is A Layer On Top Of JavaScript
+  - It Should Remove All Annotations And Although Access Modifiers "Private For Example"
+*/
+
+class UserClass {
+  msg: () => string;
+  constructor(private username: string, protected salary: number,public readonly address: string) {
+    this.msg = function () {
+      return `Hello ${this.username} Your Salary Is ${this.salary}`;
+    }
+  }
+  sayMsg() {
+    return `Hello ${this.username} Your Salary Is ${this.salary}`;
+  }
+}
+
+let userOneClass = new UserClass("Elzero", 6000,"Egypt");
+
+// console.log(userOne.username);
+// console.log(userOne.salary);
+console.log(userOneClass.msg());
+console.log(userOneClass.sayMsg());
+///////////////////////////////////////////////////////////////////
+// // /////////////////////////// lesson 29 ///////////////////////////
+/*
+  Class
+  - Get And Set Accessors
+*/
+
+class UserGetAndSet {
+  public get username(): string {
+    return this._username;
+  }
+  public set username(value: string) {
+    this._username = value;
+  }
+  msg: () => string;
+  constructor(private _username: string, public salary: number, public readonly address: string) {
+    this.msg = function () {
+      return `Hello ${this._username} Your Salary Is ${this.salary}`;
+    }
+  }
+  sayMsg() {
+    return `Hello ${this._username} Your Salary Is ${this.salary}`;
+  }
+  // get username() : string {
+  //   return this._username;
+  // }
+  // set username(value: string) {
+  //   this._username = value;
+  // }
+}
+
+let userOneGetAndSet = new UserGetAndSet("Elzero", 6000, "Cairo");
+
+console.log(userOneGetAndSet.username);
+userOneGetAndSet.username = "Ahmed";
+console.log(userOneGetAndSet.username);
+console.log(userOneGetAndSet.salary);
+console.log(userOneGetAndSet.msg());
+console.log(userOneGetAndSet.sayMsg());
+
+///////////////////////////////////////////////////////////////////
+// // /////////////////////////// lesson 30 ///////////////////////////
+/*
+  Class
+  - Static Members
+  --- Don't Use "name, length, call"
+*/
+
+class UserStatic {
+  private static created: number = 0;
+  static getCount() : void {
+    console.log(`${this.created} Objects Created`);
+  }
+  constructor(public username: string) {
+    UserStatic .created++;
+  }
+}
+
+let u1 = new UserStatic ("Elzero");
+let u2 = new UserStatic ("Web");
+let u3 = new UserStatic ("School");
+// console.log(User.created);
+UserStatic .getCount();
+///////////////////////////////////////////////////////////////////
+// // /////////////////////////// lesson 31 ///////////////////////////
+// Class Implement Interface
+/*
+  Class
+  - Implement Interface
+*/
+
+
+
+interface Setting {
+  theme: boolean;
+  font: string;
+  save(): void;
+}
+
+class UserWithInterface implements Setting {
+  constructor(public username: string, public theme: boolean, public font: string) {}
+  save(): void {
+    console.log(`Saved`);
+  }
+  update(): void {
+    console.log(`Updated`);
+  }
+}
+
+let userOneWithInterface = new UserWithInterface("Elzero", true, "Open Sans");
+
+console.log(userOneWithInterface.username);
+console.log(userOneWithInterface.font);
+
+userOneWithInterface.save();
+userOneWithInterface.update();
+///////////////////////////////////////////////////////////////////
+// Week 4 
