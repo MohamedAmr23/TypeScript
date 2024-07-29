@@ -427,3 +427,304 @@
 //   user.username = "Osama";
 //   user.age = "40";
 //   user.skills.backEnd.push(100);
+
+///////////////////////////////////////////////////////
+// week 3 
+// ass 1
+// Edit The Interface To Fix The Problems
+// interface Member {
+//     id: number;
+//     username: string;
+//     country: string;
+//     readonly state: boolean;
+//   }
+  
+//   // Do Not Edit The Code Below
+//   let user: Member = { // Property 'country' is missing in type
+//     id: 100,
+//     username: "Elzero",
+//     state: true,
+//     getName() { // 'getName' does not exist in type 'Member'
+//       return this.username;
+//     }
+//   }
+  
+//   user.id = 200;
+//   user.id = "200"; // Type 'string' is not assignable to type 'number'
+//   user.state = false; // Cannot assign to 'state' because it is a read-only property
+
+// solution
+// Edit The Interface To Fix The Problems
+// interface Member {
+//     id: number|string;
+//     username: string;
+//     country?: string;
+//     getName():string
+//     state: boolean;
+//   }
+  
+//   // Do Not Edit The Code Below
+//   let user: Member = { // Property 'country' is missing in type     
+//     id: 100,
+//     username: "Elzero",
+//     state: true,
+//     getName() { // 'getName' does not exist in type 'Member'
+//       return this.username;
+//     }
+//   }
+  
+//   user.id = 200;
+//   user.id = "200"; // Type 'string' is not assignable to type 'number'
+//   user.state = false; // Cannot assign to 'state' because it is a read-only property
+
+
+// ass 2
+// Create Interface Here
+
+// Do Not Edit The Code Below
+// let client: Client = {
+//     id: 100,
+//     username: "Elzero",
+//     active: true,
+//     discount: 10,
+//     getPrice(price: number) {
+//       return price - this.discount;
+//     }
+//   }
+  
+//   console.log(`Client Id Is ${client.id}`);
+//   console.log(`Client Name Is ${client.username}`);
+//   console.log(`Client Has Dicount ${client.discount}`);
+//   console.log(`Client Product After Discount Is ${client.getPrice(200)}`);
+
+// solution
+// interface Client{
+//     id:number,
+//     username:string,
+//     active:boolean,
+//     discount:number,
+//     getPrice(price:number):number
+//   }
+  
+//   // Do Not Edit The Code Below
+//   let client: Client = {
+//     id: 100,
+//     username: "Elzero",
+//     active: true,
+//     discount: 10,
+//     getPrice(price: number) {
+//       return price - this.discount;
+//     }
+//   }
+  
+//   console.log(`Client Id Is ${client.id}`);
+//   console.log(`Client Name Is ${client.username}`);
+//   console.log(`Client Has Dicount ${client.discount}`);
+//   console.log(`Client Product After Discount Is ${client.getPrice(200)}`);
+
+// ass 3
+// Do Not Edit The Code Below
+// interface Man {
+//     title: string;
+//     weight: number;
+//     age: number;
+//   }
+  
+//   interface Bird {
+//     canFly: boolean;
+//   }
+  
+//   let creature: Superman = {
+//     title: "Superman",
+//     weight: 100,
+//     age: 500,
+//     canFly: true,
+//     bodyType: "Iron",
+//     origin: "Krypton"
+//   }
+
+// solution
+// Do Not Edit The Code Below
+// interface Man {
+//     title: string;
+//     weight: number;
+//     age: number;
+//   }
+  
+//   interface Bird {
+//     canFly: boolean;
+//   }
+//   interface Superman extends Man,Bird{
+//     bodyType:string,
+//     origin:string
+//   }
+//   let creature: Superman = {
+//     title: "Superman",
+//     weight: 100,
+//     age: 500,
+//     canFly: true,
+//     bodyType: "Iron",
+//     origin: "Krypton"
+//   }
+
+// ass 4
+// Create Class Here
+
+// Do Not Edit The Code Below
+// let player1 = new Player("Osama", "Mage", 90, true);
+// let player2 = new Player("Shady", "Archer", "85", false);
+// let player3 = new Player("Amr", "Fighter", 50, true);
+// let player4 = new Player("Mahmoud", "Assassin", 77);
+
+// console.log(player1.details()); // VIP Osama, Type Is Mage Level Is 90
+// console.log(player2.details()); // Shady, Type Is Archer Level Is 85
+// console.log(player3.details()); // VIP Amr, Type Is Fighter Level Is 50
+// console.log(player4.details()); // Mahmoud, Type Is Assassin Level Is 77
+
+// solution 
+// Create Class Here
+// class Player{
+//     u:string;
+//     t:string;
+//     l:number|string;
+//     c?:boolean
+//     constructor(username:string,type:string,level:number|string,count?:boolean){
+//       this.u=username;
+//       this.t=type;
+//       this.l=level;
+//       this.c=count
+//     }
+//      details(){
+//       if(this.c===true){
+//         return `VIP ${this.u} Type Is ${this.t} Level Is ${this.l},`
+//       }else{
+//         return `${this.u} Type Is ${this.t} Level Is ${this.l},`
+//       }
+      
+//      }
+   
+//   }
+//   // Do Not Edit The Code Below
+//   let player1 = new Player("Osama", "Mage", 90, true);
+//   let player2 = new Player("Shady", "Archer", "85", false);
+//   let player3 = new Player("Amr", "Fighter", 50, true);
+//   let player4 = new Player("Mahmoud", "Assassin", 77);
+  
+//   console.log(player1.details()); // VIP Osama, Type Is Mage Level Is 90
+//   console.log(player2.details()); // Shady, Type Is Archer Level Is 85
+//   console.log(player3.details()); // VIP Amr, Type Is Fighter Level Is 50
+//   console.log(player4.details()); // Mahmoud, Type Is Assassin Level Is 77
+
+// ass 5
+// class Shorten {
+//     public id: number;
+//     public username: string;
+//     protected title: string;
+//     constructor (id: number, username: string, title: string) {
+//       this.id = id;
+//       this.username = username;
+//       this.title = title;
+//     }
+//   }
+  
+//   let tester = new Shorten(100, "Elzero", "Developer");
+  
+//   console.log(tester.id);
+//   console.log(tester.username);
+
+// solution
+// class Shorten {
+//     constructor (public id: number,public username: string,protected title: string) {
+//     }
+//   }
+  
+//   let tester = new Shorten(100, "Elzero", "Developer");
+  
+//   console.log(tester.id);
+//   console.log(tester.username);
+
+// ass 6
+// class Show {
+//     constructor (private _title: string) {}
+//   }
+  
+//   let tester = new Show("Elzero");
+  
+//   console.log(tester.title); // Property 'title' does not exist on type 'Show'
+//   tester.title = "Osama"; // Property 'title' does not exist on type 'Show'
+//   console.log(tester.title); // Property 'title' does not exist on type 'Show'
+
+//   solution
+
+// class Show {
+//     private _title: string;
+  
+//     constructor(title: string) {
+//       this._title = title;
+//     }
+  
+//     // Getter for _title
+//     get title(): string {
+//       return this._title;
+//     }
+  
+//     // Setter for _title
+//     set title(newTitle: string) {
+//       this._title = newTitle;
+//     }
+//   }
+  
+//   let tester = new Show("Elzero");
+  
+//   console.log(tester.title); // Elzero
+//   tester.title = "Osama"; // No error
+//   console.log(tester.title); // Osama
+
+// ass 7
+// interface Play {
+//     id: number;
+//     title: string;
+//     level: number | string;
+//     logIn(): void;
+//     logOut(msg: string): void;
+//   }
+  
+//   // Create Your Class Here
+  
+//   let player1 = new Player(100, "Elzero", 95);
+  
+//   console.log(player1.id); // 100
+//   console.log(player1.title); // "Elzero"
+//   console.log(player1.level); // 95
+//   player1.logIn(); // Logged In
+//   player1.logOut("Good Bye"); // Logged Out, Good Bye
+
+// solution  
+// interface Play {
+//     id: number;
+//     title: string;
+//     level: number | string;
+//     logIn(): void;
+//     logOut(msg: string): void;
+//   }
+  
+//   class Player implements Play{
+//     constructor(public id:number,public title:string,public level:number | string){}
+//         logIn():void{
+//         console.log(`Logged In`)
+    
+//     }
+//         logOut(msg:string):void{
+//         console.log(`Logged Out, Good Bye`)
+    
+//     }
+   
+//   }
+  
+//   let player1 = new Player(100, "Elzero", 95);
+  
+//   console.log(player1.id); // 100
+//   console.log(player1.title); // "Elzero"
+//   console.log(player1.level); // 95
+//   player1.logIn(); // Logged In
+//   player1.logOut("Good Bye"); // Logged Out, Good Bye
