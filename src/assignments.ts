@@ -728,3 +728,154 @@
 //   console.log(player1.level); // 95
 //   player1.logIn(); // Logged In
 //   player1.logOut("Good Bye"); // Logged Out, Good Bye
+
+// week4
+// ass 1
+// Do Not Edit
+// type numandstring = number | string;
+
+// abstract class Game {
+//   constructor(public title: string, public price: numandstring) {}
+//   abstract getLocation() : string;
+//   abstract getDiscount() : string;
+// }
+
+// // Start Edit And Fix
+// class RPG extends Game {
+//   constructor(title: string, public price: numandstring, public rate: number) {
+//   }
+// }
+
+// class Action extends Game {
+//   constructor(title: string, public price: numandstring, public rate: number) {
+//   }
+// }
+// // End Edit And Fix
+
+// // Do Not Edit
+// let gameOne = new RPG("Ys", 100, 10);
+// let gameTwo = new Action("Uncharted", 90, 15, "Sony");
+
+// console.log(gameOne.title); // "Ys"
+// console.log(gameOne.price); // 100
+// console.log(gameOne.rate); // 10
+// console.log(gameOne.getDiscount()); // "Discount"
+// console.log(gameOne.getLocation()); // "Location"
+
+// console.log(gameTwo.title); // "Uncharted"
+// console.log(gameTwo.price); // 90
+// console.log(gameTwo.rate); // 15
+// console.log(gameTwo.company); // "Sony"
+// console.log(gameTwo.getDiscount()); // "Discount"
+// console.log(gameTwo.getLocation()); // "Location"
+
+// solution
+// Do Not Edit
+// type numandstring = number | string;
+
+// abstract class Game {
+//   constructor(public title: string, public price: numandstring) {}
+//   abstract getLocation() : string;
+//   abstract getDiscount() : string;
+// }
+
+// // Start Edit And Fix
+// class RPG extends Game {
+//   constructor(title: string, public price: numandstring, public rate: number) {
+//     super(title,price)
+//   }
+//   getLocation() : string{
+//     return "Location"
+//   }
+//   getDiscount() : string{
+//     return "dicount"
+//   }
+// }
+
+// class Action extends Game {
+//   constructor(title: string, public price: numandstring, public rate: number,public company:string) {
+//      super(title,price)
+//   }
+//     getLocation() : string{
+//     return "Location"
+//   }
+//   getDiscount() : string{
+//     return "dicount"
+//   }
+// }
+// // End Edit And Fix
+
+// // Do Not Edit
+// let gameOne = new RPG("Ys", 100, 10);
+// let gameTwo = new Action("Uncharted", 90, 15, "Sony");
+
+// console.log(gameOne.title); // "Ys"
+// console.log(gameOne.price); // 100
+// console.log(gameOne.rate); // 10
+// console.log(gameOne.getDiscount()); // "Discount"
+// console.log(gameOne.getLocation()); // "Location"
+
+// console.log(gameTwo.title); // "Uncharted"
+// console.log(gameTwo.price); // 90
+// console.log(gameTwo.rate); // 15
+// console.log(gameTwo.company); // "Sony"
+// console.log(gameTwo.getDiscount()); // "Discount"
+// console.log(gameTwo.getLocation()); // "Location"
+
+
+// ass 2
+// Write Function Code Here
+
+// Do Not Edit Here
+// console.log(showTypes()); // Nothing - Nothing - Nothing
+// console.log(showTypes<string>("String")); // String - Nothing - Nothing
+// console.log(showTypes<string, number>("String", 100)); // String - 100 - Nothing
+// console.log(showTypes<string, number, boolean>("String", 100, true)); // String - 100 - true
+
+// solution
+// function showTypes<T=any,S=any,V=any>(val1?:T,val2?:S,val3?:V){
+//     return `${val1??"Nothing"} ${val2??"Nothing"} ${val3??"Nothing"}` 
+//   }
+  
+//   // Do Not Edit Here
+//   console.log(showTypes()); // Nothing - Nothing - Nothing
+//   console.log(showTypes<string>("String")); // String - Nothing - Nothing
+//   console.log(showTypes<string, number>("String", 100)); // String - 100 - Nothing
+//   console.log(showTypes<string, number, boolean>("String", 100, true)); // String - 100 - true
+  
+
+// ass 3
+// Write Class Code Here
+
+// Do Not Edit Here
+// let gameOne = new Game<string>("Ys", 100);
+// let gameTwo = new Game<number>(2064, 100); // There's A Game Called "2064"
+
+// console.log(gameOne.title); // "Ys"
+// console.log(gameOne.price); // 100
+// gameOne.getDiscount("50"); // "The Discount Is 50"
+
+// console.log(gameTwo.title); // 2064
+// console.log(gameTwo.price); // 100
+// gameTwo.getDiscount(80); // "The Discount Is 80"
+
+// solution
+// class Game<T=string,U=number>{
+//     constructor(public title:T ,public price:U){}
+//     getDiscount<T=string|number>(val:T){
+//       return `The Discount Is ${val}`;
+//     }
+//   }
+  
+//   // Do Not Edit Here
+//   let gameOne = new Game<string>("Ys", 100);
+//   let gameTwo = new Game<number>(2064, 100); // There's A Game Called "2064"
+  
+//   console.log(gameOne.title); // "Ys"
+//   console.log(gameOne.price); // 100
+//   console.log(gameOne.getDiscount("50")); // "The Discount Is 50"
+  
+//   console.log(gameTwo.title); // 2064
+//   console.log(gameTwo.price); // 100
+//   console.log(gameTwo.getDiscount(80)); // "The Discount Is 80"
+  
